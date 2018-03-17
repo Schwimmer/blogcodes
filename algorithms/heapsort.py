@@ -7,6 +7,7 @@ Created on Tue Mar 13 09:46:42 2018
 """
 
 
+
 def sift_down(array, start, end):
     """
     调整成大顶堆，初始堆时，从下往上；交换堆顶与堆尾后，从上往下调整
@@ -55,5 +56,8 @@ def heap_sort(array):  # 堆排序
 if __name__ == "__main__":
     array = [16, 7, 3, 20, 17, 8]
     print(array)
-    heap_sort(array)
-    print("堆排序最终结果:", array)
+#    heap_sort(array)
+    first = len(array)//2 - 1
+    for i in range(first, -1, -1):
+        sift_down(array,i, len(array)-1)
+    print(u"堆排序最终结果:", array)

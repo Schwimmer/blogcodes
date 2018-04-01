@@ -28,9 +28,26 @@ class BinarySearchTree:
             print root.val
             self.preOrder(root.left)
             self.preOrder(root.right)
+            
+    def preOrderStack(self, root):
+        treestr = ""
+        if not root:
+            return str
+        
+        stackNode = []
+        stackNode.append(root)
+        while(stackNode):
+            node = stackNode.pop()
+            treestr += str(node.val)
+            if node.right:
+                stackNode.append(node.right)
+            if node.left:
+                stackNode.append(node.left)
+        return treestr
     
 Tree = BinarySearchTree()
 root = None
 for i in [1,2,3]:
     root = Tree.insert(root, i)
-Tree.preOrder(root)
+treestr = Tree.preOrderStack(root)
+print(treestr)
